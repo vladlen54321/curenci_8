@@ -9,5 +9,5 @@ def get_password(length: int = 10) -> str:
     for _ in range(length):
 
         password += random.choice(cgars)
-    print(password)
+        
     return password
