@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from currency.views import generate_password
+from currency.views import email_ms
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('generate-password/', generate_password)
+    # path('rate/list', rate_list),
+    path('email_ms/', email_ms),
 ]
