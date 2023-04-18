@@ -1,0 +1,13 @@
+{% extends 'currency/base.html' %}
+
+{% block title %}RATE DELETE{% endblock title %}
+
+{% block main_content %}
+    Rate Update
+
+    <dev>Delete object with id {{ instance.id }}</dev>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">delete</button>
+    </form>
+{% endblock main_content %}

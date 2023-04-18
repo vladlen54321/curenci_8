@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from currency.views import email_ms
+from currency.views import email_ms, index, http_response, rate_update, rate_details, rate_delete, rate_create
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # path('rate/list', rate_list),
+    path('', index),
     path('email_ms/', email_ms),
+    path('response/', http_response),
+    path('rate/create/', rate_create),
+    path('rate/update/<int:rate_id>/', rate_update),
+    path('rate/details/<int:rate_id>/', rate_details),
+    path('rate/delete/<int:rate_id>/', rate_delete),
 ]
