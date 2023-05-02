@@ -1,0 +1,32 @@
+{% extends 'currency/base.html' %}
+
+{% block main_content %}
+    <div><a href="{% url 'currency:response_create' %}">Create new rate</a></div>
+    
+    
+        <table cellspacing="5" cellpadding="10" border="2" bgcolor="blue">
+            <thead>
+                <tr>
+                    <td bgcolor="#ffcc00">TIME</td>
+                    <td bgcolor="#ffcc00">METHOD</td>
+                    <td bgcolor="#ffcc00">PARAM</td>
+                    <td bgcolor="#ffcc00">IP</td>
+                    <td bgcolor="#ffcc00">PATH</td>
+                </tr>
+            </thead>
+            <thead>
+            {% for response in responselog_list %}
+            <tbody>
+                <tr>
+                    <td bgcolor="#ffcc12">{{ response.response_time}}</td>
+                    <td bgcolor="#ffcc00">{{ response.request_method}}</td>
+                    <td bgcolor="#ffcc00">{{ response.query_params}}</td>
+                    <td bgcolor="#ffcc00">{{ response.ip}}</td>
+                    <td bgcolor="#ffcc00">{{response.path}}</td>
+                </tr>
+            </tbody>
+            {% endfor%}
+            </thead>
+        </table>       
+    
+{% endblock main_content %}

@@ -13,18 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-# from currency.views import email_ms, index, http_response, rate_update, rate_delete, rate_create
 from currency import views
-from django.urls import include, path
+from django.urls import path
+
+app_name = 'currency'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('__debug__/', include('debug_toolbar.urls')),
-
-    path('currency/', include('currency.urls')),
-
     path('', views.IndexView.as_view()),
-
-
+    path('email_ms/', views.SourceListView.as_view(), name='email_ms'),
+    path('rate/create/', views.SourceCreateView.as_view(), name='rate_create'),
+    path('rate/update/<int:pk>/', views.SourceUpdateView.as_view(), name='rate_updata'),
+    path('rate/delete/<int:pk>/', views.SourceDeleteView.as_view(), name='rate_delete'),
+    path('rate/details/<int:pk>/', views.SourceDetailsView.as_view(), name='rate_details'),
+    path('contactus/create/', views.ContactUsCreateView.as_view(), name='contactus_create'),
+    path('response/create/', views.ResponseCreateView.as_view(), name='response_create'),
 ]

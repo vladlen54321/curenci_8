@@ -5,7 +5,7 @@
 {% block main_content %}
     Rate Update
 
-    <dev>Delete object with id {{ instance.id }}</dev>
+    <dev>Delete object with id {{ object.id }}</dev>
     <form method="post">
         {% csrf_token %}
         <button type="submit">delete</button>

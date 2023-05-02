@@ -2,8 +2,9 @@
 
 {% block main_content %}
     <div>Currency Exchange Project</div>
+    <div>rate count: {{ rate_count }}</div>
 
     <div>
-        View List: <a href="email_ms/">Click Here</a>
+        View List: <a href="{% url 'currency:email_ms' %}">Click Here</a>
     </div>
 {% endblock main_content %}

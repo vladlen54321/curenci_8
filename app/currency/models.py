@@ -1,4 +1,15 @@
 from django.db import models
+from currency.model_choices import CurrencyType
+
+
+class Source(models.Model):
+    source_url = models.CharField(
+        max_length=255,
+        choices=CurrencyType.choices,
+        default=CurrencyType.CURRENCY_TYPE_GIT
+    )
+    name = models.CharField(max_length=64)
+    created = models.DateTimeField(auto_now_add=True)
 
 
 class ContactUs(models.Model):
@@ -8,11 +19,13 @@ class ContactUs(models.Model):
     message = models.TextField()
 
 
-class Source(models.Model):
-    source_url = models.CharField(max_length=255)
-    name = models.CharField(max_length=64)
+class ResponseLog(models.Model):
+    response_time = models.FloatField()
+    request_method = models.CharField(max_length=10)
+    query_params = models.CharField(max_length=20)
+    ip = models.CharField(max_length=60)
+    path = models.CharField(max_length=168)
 
-    
 # class Rate(models.Model):
 #     base_currency_type = models.CharField(max_length=3)
 #     currency_type = models.CharField(max_length=3)
