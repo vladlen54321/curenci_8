@@ -34,7 +34,6 @@ for customer in customers:
     )
     customer_object.append(customer_obj)
 
-
 '''
 ORM
 0 - object (class Customers)
